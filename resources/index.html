@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Folio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside id="shelf" class="shelf">
+        <div class="shelf-head">
+          <h1>Folio</h1>
+          <button type="button" id="new" aria-label="New note">+</button>
+        </div>
+        <input id="find" aria-label="Search notes" placeholder="Search" />
+        <p class="kicker">Notes</p>
+        <ul id="list"></ul>
+      </aside>
+      <button type="button" id="backdrop" class="backdrop" aria-label="Close notes" hidden></button>
+
+      <section class="stage">
+        <header class="tab">
+          <button type="button" id="shelf-toggle" class="icon-btn mobile-only" aria-label="Open notes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+          <p id="tab-title" class="tab-title">Untitled</p>
+          <button type="button" id="open" class="icon-btn" aria-label="Open a markdown file" title="Open">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10M8 8l4-4 4 4M5 20h14" /></svg>
+          </button>
+          <button type="button" id="save" class="icon-btn" aria-label="Save markdown" title="Save">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10M8 10l4 4 4-4M5 20h14" /></svg>
+          </button>
+          <input id="file" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden />
+        </header>
+
+        <div id="scroller" class="scroller">
+          <div class="column">
+            <input id="title" class="inline-title" aria-label="Note title" placeholder="Untitled" />
+            <div id="blocks"></div>
+            <button type="button" id="tail" class="tail" aria-label="Edit the end of the note"></button>
+          </div>
+        </div>
+
+        <div id="empty" class="empty" hidden>
+          <h2>The vault is empty</h2>
+          <p>Start a note, or open a markdown file.</p>
+          <button type="button" id="empty-new">New note</button>
+        </div>
+
+        <footer class="status">
+          <p id="stats"></p>
+          <p id="message">Saved on this device · Live Preview</p>
+        </footer>
+      </section>
+    </div>
+    <script src="js/neutralino.js"></script>
+    <script src="js/marked.umd.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
